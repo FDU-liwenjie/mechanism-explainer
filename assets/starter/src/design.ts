@@ -1,5 +1,6 @@
 export type Style = 'studio' | 'diagram' | 'mixed';
-export const film: {style: Style; chapters: boolean; actionSound: boolean} = {
+export type FilmStyle = Style | 'chalkboard';
+export const film: {style: FilmStyle; chapters: boolean; actionSound: boolean} = {
   style: 'mixed',
   chapters: false,
   actionSound: true,

@@ -1,0 +1,14 @@
+Handwriting / handwriting stroke data
+
+The Chinese strokes in src/chalk/glyphs.json use the medians from Hanzi Writer
+Data v2.0.1 (https://github.com/chanind/hanzi-writer-data), sourced from Make Me
+a Hanzi (https://github.com/skishore/makemeahanzi). The original fonts are
+copyright (C) 1999 Arphic Technology Co., Ltd. These character data and the
+bundled subset are distributed under the Arphic Public License. See the full,
+unmodified license in ARPHICPL.TXT. The generated file carries its modification
+date and description; its editable source data are included in the template.
+
+The compiler tools/build_chalk_glyphs.py selects characters and preserves their
+ordered medians. The renderer flips the source coordinates vertically to lay
+them out on an SVG board. Latin and mathematical pen strokes, the board,
+the composition, and the chalk sounds are authored independently.

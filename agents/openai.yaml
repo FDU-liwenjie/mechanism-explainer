@@ -1,4 +1,4 @@
 interface:
   display_name: "原理放映室"
-  short_description: "用立体实验台和原理对照图制作可编辑的科普视频"
-  default_prompt: "用 $mechanism-explainer 做一条中文科普视频，先给我解说词和一个原理样镜。"
+  short_description: "按题目选时长、旁白和画风，让老师用手写板书或实验逐步讲清原理"
+  default_prompt: "用 $mechanism-explainer 给初次接触这道题的人做一条中文科普视频。先给我三个时长选项，每项说明能讲到哪一步。"

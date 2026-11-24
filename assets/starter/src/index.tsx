@@ -1,9 +1,12 @@
 import React from 'react';
 import {AbsoluteFill, Audio, Composition, Sequence, registerRoot, staticFile, useCurrentFrame} from 'remotion';
 import timeline from '../script/timeline.json';
-import {Beat, c, film, SceneProps, Style} from './design';
+import {Beat, c, film, SceneProps, FilmStyle} from './design';
+import board from '../script/board.json';
+import {BoardMark, ChalkSheet, validateBoard} from './chalk/Lesson';
 import {TcpBuffer} from './TcpBuffer';
 import {DnsRelay, NarratedTcpComparison, PacketLayers} from './svg/NetworkScenes';
+import {Chalkboard, chalkboardSeconds} from './chalk/Chalkboard';
 import {showcaseSeconds, SvgShowcase} from './svg/Showcase';
 
 // Register each new topic's scene here. A scene receives the active narration beat.
@@ -15,10 +18,24 @@ const scenes: Record<string, React.FC<SceneProps>> = {
 };
 const beats: Beat[] = timeline.beats;
 const chapterCuts = beats.filter((b,i) => i===0 || b.chapter!==beats[i-1].chapter);
-const Frame: React.FC<{style:Style}> = ({style}) => {
+const Frame: React.FC<{style:FilmStyle}> = ({style}) => {
   const frame = useCurrentFrame();
   const b = beats.find(b => frame >= b.from && frame < b.to);
   if (!b) throw new Error('Uncovered frame ' + frame);
+  const narration = beats.map((cue) => <Sequence key={cue.from} from={cue.from} durationInFrames={cue.speech}>
+      <Audio src={staticFile(cue.audio)}/>
+    </Sequence>);
+  if (style==='chalkboard') {
+    const key=b.scene+'/'+b.phase;
+    const marks=(board as Record<string,BoardMark[]>)[key];
+    validateBoard(marks,key);
+    return <AbsoluteFill>
+      <Sequence from={b.from} durationInFrames={b.to-b.from}>
+        <ChalkSheet marks={marks} frame={frame-b.from} duration={b.to-b.from} sound={film.actionSound}/>
+      </Sequence>
+      {narration}
+    </AbsoluteFill>;
+  }
   const Scene = scenes[b.scene];
   if (!Scene) throw new Error('Unregistered scene ' + b.scene);
   const localFrame = frame - b.from;
@@ -28,9 +45,7 @@ const Frame: React.FC<{style:Style}> = ({style}) => {
     : Math.min(1, progress / .72);
   return <AbsoluteFill style={{color:c.ink,background:c.paper,fontFamily:'"Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif'}}>
     <Scene beat={b} progress={progress} motion={motion} localFrame={localFrame} fps={timeline.fps} style={style}/>
-    {beats.map((cue) => <Sequence key={cue.from} from={cue.from} durationInFrames={cue.speech}>
-      <Audio src={staticFile(cue.audio)}/>
-    </Sequence>)}
+    {narration}
     {film.actionSound && beats.map(cue => {
       if (!cue.landing || cue.motionFrom === undefined || cue.landAt === undefined) return null;
       const contact = cue.from + cue.landAt;
@@ -61,6 +76,7 @@ const Root = () => <>{(['Film','Studio','Diagram'] as const).map(id =>
   <Composition key={id} id={id} width={1920} height={1080} fps={timeline.fps} durationInFrames={timeline.total}
     component={Frame} defaultProps={{style:id==='Film'?film.style:id==='Studio'?'studio':'diagram'}}/>
 )}
+  <Composition id="Chalkboard" width={1920} height={1080} fps={30} durationInFrames={chalkboardSeconds * 30} component={Chalkboard}/>
   <Composition id="SvgMotions" width={1920} height={1080} fps={30} durationInFrames={showcaseSeconds * 30} component={SvgShowcase}/>
 </>;
 registerRoot(Root);

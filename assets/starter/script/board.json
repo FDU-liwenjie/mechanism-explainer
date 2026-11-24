@@ -1,0 +1,454 @@
+{
+  "tcp-buffer/missing": [
+    {
+      "kind": "write",
+      "text": "1",
+      "x": 295,
+      "y": 285,
+      "size": 109,
+      "color": "#f4efdc",
+      "from": 0,
+      "to": 0
+    },
+    {
+      "kind": "path",
+      "points": [
+        [
+          465,
+          397
+        ],
+        [
+          550,
+          397
+        ]
+      ],
+      "color": "#f4efdc",
+      "width": 4,
+      "from": 0.24,
+      "to": 0.74
+    }
+  ],
+  "tcp-buffer/arrival": [
+    {
+      "kind": "write",
+      "text": "1",
+      "x": 295,
+      "y": 285,
+      "size": 109,
+      "color": "#f4efdc",
+      "from": 0,
+      "to": 0
+    },
+    {
+      "kind": "path",
+      "points": [
+        [
+          465,
+          397
+        ],
+        [
+          550,
+          397
+        ]
+      ],
+      "color": "#f4efdc",
+      "width": 4,
+      "from": 0,
+      "to": 0
+    },
+    {
+      "kind": "write",
+      "text": "3",
+      "x": 668,
+      "y": 285,
+      "size": 109,
+      "color": "#a7d8c5",
+      "from": 0.25,
+      "to": 0.82
+    }
+  ],
+  "tcp-buffer/buffer": [
+    {
+      "kind": "write",
+      "text": "1",
+      "x": 295,
+      "y": 285,
+      "size": 109,
+      "color": "#f4efdc",
+      "from": 0,
+      "to": 0
+    },
+    {
+      "kind": "path",
+      "points": [
+        [
+          465,
+          397
+        ],
+        [
+          550,
+          397
+        ]
+      ],
+      "color": "#f4efdc",
+      "width": 4,
+      "from": 0,
+      "to": 0
+    },
+    {
+      "kind": "write",
+      "text": "3",
+      "x": 668,
+      "y": 285,
+      "size": 109,
+      "color": "#a7d8c5",
+      "from": 0,
+      "to": 0
+    },
+    {
+      "kind": "write",
+      "text": "缺口",
+      "x": 428,
+      "y": 162,
+      "size": 61,
+      "color": "#f5d58b",
+      "from": 0.13,
+      "to": 0.86
+    }
+  ],
+  "tcp-buffer/blocked": [
+    {
+      "kind": "write",
+      "text": "1",
+      "x": 295,
+      "y": 285,
+      "size": 109,
+      "color": "#f4efdc",
+      "from": 0,
+      "to": 0
+    },
+    {
+      "kind": "path",
+      "points": [
+        [
+          465,
+          397
+        ],
+        [
+          550,
+          397
+        ]
+      ],
+      "color": "#f4efdc",
+      "width": 4,
+      "from": 0,
+      "to": 0
+    },
+    {
+      "kind": "write",
+      "text": "3",
+      "x": 668,
+      "y": 285,
+      "size": 109,
+      "color": "#a7d8c5",
+      "from": 0,
+      "to": 0
+    },
+    {
+      "kind": "write",
+      "text": "缺口",
+      "x": 428,
+      "y": 162,
+      "size": 61,
+      "color": "#f5d58b",
+      "from": 0,
+      "to": 0
+    },
+    {
+      "kind": "write",
+      "text": "等待",
+      "x": 820,
+      "y": 306,
+      "size": 68,
+      "color": "#f4efdc",
+      "from": 0.12,
+      "to": 0.77
+    }
+  ],
+  "tcp-buffer/hold": [
+    {
+      "kind": "write",
+      "text": "1",
+      "x": 295,
+      "y": 285,
+      "size": 109,
+      "color": "#f4efdc",
+      "from": 0,
+      "to": 0
+    },
+    {
+      "kind": "path",
+      "points": [
+        [
+          465,
+          397
+        ],
+        [
+          550,
+          397
+        ]
+      ],
+      "color": "#f4efdc",
+      "width": 4,
+      "from": 0,
+      "to": 0
+    },
+    {
+      "kind": "write",
+      "text": "3",
+      "x": 668,
+      "y": 285,
+      "size": 109,
+      "color": "#a7d8c5",
+      "from": 0,
+      "to": 0
+    },
+    {
+      "kind": "write",
+      "text": "缺口",
+      "x": 428,
+      "y": 162,
+      "size": 61,
+      "color": "#f5d58b",
+      "from": 0,
+      "to": 0
+    },
+    {
+      "kind": "write",
+      "text": "等待",
+      "x": 820,
+      "y": 306,
+      "size": 68,
+      "color": "#f4efdc",
+      "from": 0,
+      "to": 0
+    }
+  ],
+  "tcp-buffer/repair": [
+    {
+      "kind": "write",
+      "text": "1",
+      "x": 295,
+      "y": 285,
+      "size": 109,
+      "color": "#f4efdc",
+      "from": 0,
+      "to": 0
+    },
+    {
+      "kind": "path",
+      "points": [
+        [
+          465,
+          397
+        ],
+        [
+          550,
+          397
+        ]
+      ],
+      "color": "#f4efdc",
+      "width": 4,
+      "from": 0,
+      "to": 0
+    },
+    {
+      "kind": "write",
+      "text": "3",
+      "x": 668,
+      "y": 285,
+      "size": 109,
+      "color": "#a7d8c5",
+      "from": 0,
+      "to": 0
+    },
+    {
+      "kind": "write",
+      "text": "2",
+      "x": 468,
+      "y": 285,
+      "size": 109,
+      "color": "#f5d58b",
+      "from": 0.28,
+      "to": 0.85
+    }
+  ],
+  "tcp-buffer/duplicate": [
+    {
+      "kind": "write",
+      "text": "1",
+      "x": 295,
+      "y": 285,
+      "size": 109,
+      "color": "#f4efdc",
+      "from": 0,
+      "to": 0
+    },
+    {
+      "kind": "write",
+      "text": "2",
+      "x": 468,
+      "y": 285,
+      "size": 109,
+      "color": "#f5d58b",
+      "from": 0,
+      "to": 0
+    },
+    {
+      "kind": "write",
+      "text": "3",
+      "x": 668,
+      "y": 285,
+      "size": 109,
+      "color": "#a7d8c5",
+      "from": 0,
+      "to": 0
+    },
+    {
+      "kind": "write",
+      "text": "3",
+      "x": 850,
+      "y": 285,
+      "size": 109,
+      "color": "#a7d8c5",
+      "from": 0.15,
+      "to": 0.79
+    }
+  ],
+  "tcp-buffer/discard": [
+    {
+      "kind": "write",
+      "text": "1",
+      "x": 295,
+      "y": 285,
+      "size": 109,
+      "color": "#f4efdc",
+      "from": 0,
+      "to": 0
+    },
+    {
+      "kind": "write",
+      "text": "2",
+      "x": 468,
+      "y": 285,
+      "size": 109,
+      "color": "#f5d58b",
+      "from": 0,
+      "to": 0
+    },
+    {
+      "kind": "write",
+      "text": "3",
+      "x": 668,
+      "y": 285,
+      "size": 109,
+      "color": "#a7d8c5",
+      "from": 0,
+      "to": 0
+    },
+    {
+      "kind": "write",
+      "text": "3",
+      "x": 850,
+      "y": 285,
+      "size": 109,
+      "color": "#a7d8c5",
+      "from": 0,
+      "to": 0
+    },
+    {
+      "kind": "path",
+      "points": [
+        [
+          846,
+          386
+        ],
+        [
+          930,
+          321
+        ]
+      ],
+      "color": "#f5d58b",
+      "width": 4,
+      "from": 0.24,
+      "to": 0.86
+    }
+  ],
+  "tcp-buffer/deliver": [
+    {
+      "kind": "write",
+      "text": "1",
+      "x": 295,
+      "y": 285,
+      "size": 109,
+      "color": "#f4efdc",
+      "from": 0,
+      "to": 0
+    },
+    {
+      "kind": "write",
+      "text": "2",
+      "x": 468,
+      "y": 285,
+      "size": 109,
+      "color": "#f5d58b",
+      "from": 0,
+      "to": 0
+    },
+    {
+      "kind": "write",
+      "text": "3",
+      "x": 668,
+      "y": 285,
+      "size": 109,
+      "color": "#a7d8c5",
+      "from": 0,
+      "to": 0
+    },
+    {
+      "kind": "path",
+      "points": [
+        [
+          290,
+          430
+        ],
+        [
+          440,
+          429
+        ],
+        [
+          584,
+          431
+        ],
+        [
+          745,
+          428
+        ]
+      ],
+      "color": "#a7d8c5",
+      "width": 4,
+      "from": 0.02,
+      "to": 0.35
+    },
+    {
+      "kind": "write",
+      "text": "按序交付",
+      "x": 324,
+      "y": 473,
+      "size": 70,
+      "color": "#a7d8c5",
+      "from": 0.38,
+      "to": 0.95
+    }
+  ]
+}
