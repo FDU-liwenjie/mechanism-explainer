@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>旁白音色试听 · 原理放映室</title>
+  <style>
+    :root { color-scheme: light; --paper: #f5f1e7; --ink: #193d37; --muted: #49645b; --line: #c8ccbe; --panel: #164840; }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--paper); color: var(--ink); font: 16px/1.55 "DM Sans", "PingFang SC", "Microsoft YaHei", sans-serif; }
+    main { max-width: 1060px; margin: auto; padding: clamp(30px, 6vw, 80px) 24px; }
+    h1, h2, p { margin: 0; }
+    h1 { font-size: clamp(32px, 5vw, 55px); line-height: 1.15; letter-spacing: -.045em; }
+    header p { margin: .8em 0 2em; color: var(--muted); }
+    .layout { display: grid; grid-template-columns: minmax(255px, .8fr) 1.28fr; gap: clamp(20px, 4vw, 48px); align-items: start; }
+    .player { position: sticky; top: 20px; background: var(--panel); color: #fbf7e9; padding: 28px; border-radius: 16px; }
+    h2 { font-size: clamp(24px, 3vw, 34px); line-height: 1.35; }
+    #creator { margin: 6px 0 26px; font-size: 14px; color: #cbdfd3; }
+    audio { display: block; width: 100%; }
+    button, .voice, input { font: inherit; }
+    #choose { margin-top: 20px; padding: 9px 16px; background: #ffda8e; color: #203b30; border: 0; border-radius: 6px; cursor: pointer; }
+    #feedback { font-size: 14px; margin-top: 8px; }
+    #feedback:empty { display: none; }
+    #fallback { width: 100%; margin-top: 8px; }
+    .voices { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+    .voice { display: flex; align-items: center; gap: 10px; padding: 12px; border: 1px solid var(--line); border-radius: 8px; background: #fffcf4; color: var(--ink); text-decoration: none; }
+    .voice:hover, .voice[aria-current="true"] { border-color: #4a7660; background: #dce9d9; }
+    .number, .play { color: var(--muted); font-size: 12px; }
+    .number { font-variant-numeric: tabular-nums; }
+    .play { margin-left: auto; }
+    :focus-visible { outline: 3px solid #bd7415; outline-offset: 3px; }
+    @media (max-width: 700px) {
+      main { padding: 28px 15px; }
+      .layout { grid-template-columns: 1fr; gap: 16px; }
+      .player { position: static; padding: 20px; }
+      .voice { padding: 12px 9px; gap: 6px; }
+    }
+    @media (max-width: 360px) { .voices { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+<main>
+  <header><h1>旁白音色试听</h1><p>点一个角色，听它的示例台词。选好后，在 Skill 对话里回复角色名或编号。</p></header>
+  <div class="layout">
+    <section class="player" aria-label="当前试听">
+      <h2 id="current" aria-live="polite">曼波</h2>
+      <p id="creator"></p>
+      <audio controls preload="metadata" aria-label="角色样音"></audio>
+      <button id="choose" type="button">复制选声指令</button>
+      <p id="feedback" role="status"></p>
+      <input id="fallback" readonly hidden aria-label="选声指令">
+    </section>
+    <nav class="voices" aria-label="15 个音色">
+      <a class="voice" href="0f08cacd3e354471a4b94dd00b4cc4a3.mp3" data-creator="168931532"><span class="number">01</span><span class="label">曼波</span><span class="play" aria-hidden="true">▶</span></a>
+      <a class="voice" href="72c76aac8453436fb6b5b9bad5dd81f4.mp3" data-creator="荣耀"><span class="number">02</span><span class="label">动漫解说</span><span class="play" aria-hidden="true">▶</span></a>
+      <a class="voice" href="b4bdf5dc66004241a21ff2df165bf442.mp3" data-creator="546198317"><span class="number">03</span><span class="label">影视解说</span><span class="play" aria-hidden="true">▶</span></a>
+      <a class="voice" href="6fc59d2b56cf402eb572934114c8d8aa.mp3" data-creator="372900191"><span class="number">04</span><span class="label">仿真人</span><span class="play" aria-hidden="true">▶</span></a>
+      <a class="voice" href="f36c83287b0a45d59892c02527ed865f.mp3" data-creator="3759828998"><span class="number">05</span><span class="label">高中数学女老师</span><span class="play" aria-hidden="true">▶</span></a>
+      <a class="voice" href="561fcedfdf0e4e1399d1bc4930d50c0e.mp3" data-creator="Jason Zhang"><span class="number">06</span><span class="label">赛马娘</span><span class="play" aria-hidden="true">▶</span></a>
+      <a class="voice" href="33f931ec7a8749c88cda37f1100a4809.mp3" data-creator="69566266"><span class="number">07</span><span class="label">豆包</span><span class="play" aria-hidden="true">▶</span></a>
+      <a class="voice" href="3cb8677aa52f4792b0153422dbf4e14b.mp3" data-creator="王菊芳"><span class="number">08</span><span class="label">台湾女生</span><span class="play" aria-hidden="true">▶</span></a>
+      <a class="voice" href="e70a91c0b08e45808624e447cfbdcbb1.mp3" data-creator="shuyi chen"><span class="number">09</span><span class="label">元气女童</span><span class="play" aria-hidden="true">▶</span></a>
+      <a class="voice" href="83bc284d2a3848c8a37f6d9a9ab11cd8.mp3" data-creator="Flash"><span class="number">10</span><span class="label">科普</span><span class="play" aria-hidden="true">▶</span></a>
+      <a class="voice" href="54a5170264694bfc8e9ad98df7bd89c3.mp3" data-creator="丁真"><span class="number">11</span><span class="label">丁真</span><span class="play" aria-hidden="true">▶</span></a>
+      <a class="voice" href="2d1ad251fc944d5bb473318468544c60.mp3" data-creator="草鱼"><span class="number">12</span><span class="label">熊二</span><span class="play" aria-hidden="true">▶</span></a>
+      <a class="voice" href="4cc4e38293ad4a15a9b061165dc1c937.mp3" data-creator="2451681081"><span class="number">13</span><span class="label">光头强</span><span class="play" aria-hidden="true">▶</span></a>
+      <a class="voice" href="74c6aba5cbf94a15bbdc547ffce5cb38.mp3" data-creator="Fish Official"><span class="number">14</span><span class="label">语彤</span><span class="play" aria-hidden="true">▶</span></a>
+      <a class="voice" href="d675c275d1d44e57b4ef3840c5a23209.mp3" data-creator="Fish Official"><span class="number">15</span><span class="label">浩然</span><span class="play" aria-hidden="true">▶</span></a>
+    </nav>
+  </div>
+</main>
+<script>
+  const voices = Array.from(document.querySelectorAll('.voice'));
+  const audio = document.querySelector('audio');
+  const current = document.querySelector('#current');
+  const feedback = document.querySelector('#feedback');
+  const fallback = document.querySelector('#fallback');
+  function selectVoice(voice) {
+    voices.forEach(item => item.removeAttribute('aria-current'));
+    voice.setAttribute('aria-current', 'true');
+    current.textContent = voice.querySelector('.label').textContent;
+    document.querySelector('#creator').textContent = 'Fish Audio · ' + voice.dataset.creator;
+    audio.src = voice.href;
+    feedback.textContent = '';
+    fallback.hidden = true;
+  }
+  for (const voice of voices) {
+    voice.addEventListener('click', async event => {
+      if (event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
+      event.preventDefault();
+      selectVoice(voice);
+      try { await audio.play(); }
+      catch (error) {
+        if (error.name !== 'AbortError') feedback.textContent = '请点播放器的播放键重试。';
+      }
+    });
+  }
+  document.querySelector('#choose').addEventListener('click', async () => {
+    const instruction = '本片旁白用「' + current.textContent + '」。';
+    try {
+      await navigator.clipboard.writeText(instruction);
+      feedback.textContent = '已复制，可粘贴到 Skill 对话。';
+    } catch {
+      fallback.hidden = false;
+      fallback.value = instruction;
+      fallback.select();
+      feedback.textContent = '请复制下方已选中的指令。';
+    }
+  });
+  selectVoice(voices[0]);
+</script>
+</body>
+</html>

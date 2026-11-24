@@ -1,0 +1,139 @@
+{
+  "fps": 30,
+  "draftVoice": null,
+  "voice": "云希",
+  "total": 654,
+  "beats": [
+    {
+      "chapter": "接收缓存",
+      "scene": "tcp-buffer",
+      "phase": "missing",
+      "text": "假设中间一段没到，",
+      "action": "中间位置留空，前段已按序交付",
+      "hold": 0.02,
+      "from": 0,
+      "to": 52,
+      "speech": 51,
+      "audio": "audio/23f090e67d1c3d889375a36d.mp3"
+    },
+    {
+      "chapter": "接收缓存",
+      "scene": "tcp-buffer",
+      "phase": "arrival",
+      "text": "后面的数据却先来了。",
+      "action": "后段从右侧进入缓冲区",
+      "hold": 1.0,
+      "landing": {
+        "afterSpeech": 0.43,
+        "travel": 0.43,
+        "sound": "tap.wav"
+      },
+      "motionFrom": 54,
+      "landAt": 67,
+      "from": 52,
+      "to": 136,
+      "speech": 54,
+      "audio": "audio/a32fc6aa457f63ee945ae531.mp3"
+    },
+    {
+      "chapter": "接收缓存",
+      "scene": "tcp-buffer",
+      "phase": "buffer",
+      "text": "接收端可以先缓存它们，",
+      "action": "后段停在它的序号位置",
+      "hold": 0.02,
+      "from": 136,
+      "to": 198,
+      "speech": 61,
+      "audio": "audio/15260c6e9f6af09d32f460a2.mp3"
+    },
+    {
+      "chapter": "接收缓存",
+      "scene": "tcp-buffer",
+      "phase": "blocked",
+      "text": "但不会把缺口后面的内容",
+      "action": "指针在缺口前停下",
+      "hold": 0.02,
+      "from": 198,
+      "to": 259,
+      "speech": 60,
+      "audio": "audio/38034c645e6fa2a9b8e619bc.mp3"
+    },
+    {
+      "chapter": "接收缓存",
+      "scene": "tcp-buffer",
+      "phase": "hold",
+      "text": "越过去交给应用。",
+      "action": "后段仍在缓冲区",
+      "hold": 0.38,
+      "from": 259,
+      "to": 315,
+      "speech": 45,
+      "audio": "audio/32c7d1310d8ced865151bab4.mp3"
+    },
+    {
+      "chapter": "按序交付",
+      "scene": "tcp-buffer",
+      "phase": "repair",
+      "text": "发送端还得把缺失部分补回来。",
+      "action": "补传段抵达，连续字节就绪",
+      "hold": 1.5,
+      "landing": {
+        "afterSpeech": 0.54,
+        "travel": 0.52,
+        "travelSound": "foley/slide.wav",
+        "sound": "foley/latch.wav"
+      },
+      "motionFrom": 76,
+      "landAt": 92,
+      "from": 315,
+      "to": 436,
+      "speech": 76,
+      "audio": "audio/bdae74ae8e5482247b59062b.mp3"
+    },
+    {
+      "chapter": "按序交付",
+      "scene": "tcp-buffer",
+      "phase": "duplicate",
+      "text": "同一批字节再次到达时，",
+      "action": "重复段再次抵达",
+      "hold": 0.02,
+      "from": 436,
+      "to": 495,
+      "speech": 58,
+      "audio": "audio/cc867ae2acc3cec2a4fd5d63.mp3"
+    },
+    {
+      "chapter": "按序交付",
+      "scene": "tcp-buffer",
+      "phase": "discard",
+      "text": "接收端会识别重复，",
+      "action": "识别并丢弃重复副本",
+      "hold": 0.02,
+      "from": 495,
+      "to": 553,
+      "speech": 57,
+      "audio": "audio/d3d81b0e922b5c933fa0913d.mp3"
+    },
+    {
+      "chapter": "按序交付",
+      "scene": "tcp-buffer",
+      "phase": "deliver",
+      "text": "按顺序提供连续的字节流。",
+      "action": "按序交付后续连续字节",
+      "hold": 1.35,
+      "landing": {
+        "afterSpeech": 0.36,
+        "travel": 0.6,
+        "sound": "foley/release.wav"
+      },
+      "motionFrom": 54,
+      "landAt": 72,
+      "from": 553,
+      "to": 654,
+      "speech": 61,
+      "audio": "audio/0e6aba9bf40d1d0387277658.mp3"
+    }
+  ],
+  "source": "bundled-example"
+}

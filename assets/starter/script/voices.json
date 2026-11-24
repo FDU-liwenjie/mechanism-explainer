@@ -1,0 +1,122 @@
+[
+  {
+    "name": "曼波",
+    "provider": "fish-audio",
+    "reference_id": "0f08cacd3e354471a4b94dd00b4cc4a3",
+    "source_url": "https://fish.audio/m/0f08cacd3e354471a4b94dd00b4cc4a3",
+    "preview": "voices/0f08cacd3e354471a4b94dd00b4cc4a3.mp3",
+    "preview_creator": "168931532"
+  },
+  {
+    "name": "动漫解说",
+    "provider": "fish-audio",
+    "reference_id": "72c76aac8453436fb6b5b9bad5dd81f4",
+    "source_url": "https://fish.audio/m/72c76aac8453436fb6b5b9bad5dd81f4",
+    "preview": "voices/72c76aac8453436fb6b5b9bad5dd81f4.mp3",
+    "preview_creator": "荣耀"
+  },
+  {
+    "name": "影视解说",
+    "provider": "fish-audio",
+    "reference_id": "b4bdf5dc66004241a21ff2df165bf442",
+    "source_url": "https://fish.audio/m/b4bdf5dc66004241a21ff2df165bf442",
+    "preview": "voices/b4bdf5dc66004241a21ff2df165bf442.mp3",
+    "preview_creator": "546198317"
+  },
+  {
+    "name": "仿真人",
+    "provider": "fish-audio",
+    "reference_id": "6fc59d2b56cf402eb572934114c8d8aa",
+    "source_url": "https://fish.audio/m/6fc59d2b56cf402eb572934114c8d8aa",
+    "preview": "voices/6fc59d2b56cf402eb572934114c8d8aa.mp3",
+    "preview_creator": "372900191"
+  },
+  {
+    "name": "高中数学女老师",
+    "provider": "fish-audio",
+    "reference_id": "f36c83287b0a45d59892c02527ed865f",
+    "source_url": "https://fish.audio/m/f36c83287b0a45d59892c02527ed865f",
+    "preview": "voices/f36c83287b0a45d59892c02527ed865f.mp3",
+    "preview_creator": "3759828998"
+  },
+  {
+    "name": "赛马娘",
+    "provider": "fish-audio",
+    "reference_id": "561fcedfdf0e4e1399d1bc4930d50c0e",
+    "source_url": "https://fish.audio/m/561fcedfdf0e4e1399d1bc4930d50c0e",
+    "preview": "voices/561fcedfdf0e4e1399d1bc4930d50c0e.mp3",
+    "preview_creator": "Jason Zhang"
+  },
+  {
+    "name": "豆包",
+    "provider": "fish-audio",
+    "reference_id": "33f931ec7a8749c88cda37f1100a4809",
+    "source_url": "https://fish.audio/m/33f931ec7a8749c88cda37f1100a4809",
+    "preview": "voices/33f931ec7a8749c88cda37f1100a4809.mp3",
+    "preview_creator": "69566266"
+  },
+  {
+    "name": "台湾女生",
+    "provider": "fish-audio",
+    "reference_id": "3cb8677aa52f4792b0153422dbf4e14b",
+    "source_url": "https://fish.audio/m/3cb8677aa52f4792b0153422dbf4e14b",
+    "preview": "voices/3cb8677aa52f4792b0153422dbf4e14b.mp3",
+    "preview_creator": "王菊芳"
+  },
+  {
+    "name": "元气女童",
+    "provider": "fish-audio",
+    "reference_id": "e70a91c0b08e45808624e447cfbdcbb1",
+    "source_url": "https://fish.audio/m/e70a91c0b08e45808624e447cfbdcbb1",
+    "preview": "voices/e70a91c0b08e45808624e447cfbdcbb1.mp3",
+    "preview_creator": "shuyi chen"
+  },
+  {
+    "name": "科普",
+    "provider": "fish-audio",
+    "reference_id": "83bc284d2a3848c8a37f6d9a9ab11cd8",
+    "source_url": "https://fish.audio/m/83bc284d2a3848c8a37f6d9a9ab11cd8",
+    "preview": "voices/83bc284d2a3848c8a37f6d9a9ab11cd8.mp3",
+    "preview_creator": "Flash"
+  },
+  {
+    "name": "丁真",
+    "provider": "fish-audio",
+    "reference_id": "54a5170264694bfc8e9ad98df7bd89c3",
+    "source_url": "https://fish.audio/m/54a5170264694bfc8e9ad98df7bd89c3",
+    "preview": "voices/54a5170264694bfc8e9ad98df7bd89c3.mp3",
+    "preview_creator": "丁真"
+  },
+  {
+    "name": "熊二",
+    "provider": "fish-audio",
+    "reference_id": "2d1ad251fc944d5bb473318468544c60",
+    "source_url": "https://fish.audio/m/2d1ad251fc944d5bb473318468544c60",
+    "preview": "voices/2d1ad251fc944d5bb473318468544c60.mp3",
+    "preview_creator": "草鱼"
+  },
+  {
+    "name": "光头强",
+    "provider": "fish-audio",
+    "reference_id": "4cc4e38293ad4a15a9b061165dc1c937",
+    "source_url": "https://fish.audio/m/4cc4e38293ad4a15a9b061165dc1c937",
+    "preview": "voices/4cc4e38293ad4a15a9b061165dc1c937.mp3",
+    "preview_creator": "2451681081"
+  },
+  {
+    "name": "语彤",
+    "provider": "fish-audio",
+    "reference_id": "74c6aba5cbf94a15bbdc547ffce5cb38",
+    "source_url": "https://fish.audio/m/74c6aba5cbf94a15bbdc547ffce5cb38",
+    "preview": "voices/74c6aba5cbf94a15bbdc547ffce5cb38.mp3",
+    "preview_creator": "Fish Official"
+  },
+  {
+    "name": "浩然",
+    "provider": "fish-audio",
+    "reference_id": "d675c275d1d44e57b4ef3840c5a23209",
+    "source_url": "https://fish.audio/m/d675c275d1d44e57b4ef3840c5a23209",
+    "preview": "voices/d675c275d1d44e57b4ef3840c5a23209.mp3",
+    "preview_creator": "Fish Official"
+  }
+]

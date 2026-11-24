@@ -1,0 +1,94 @@
+{
+  "title": "缺了一段，后面的数据去哪了？",
+  "fps": 30,
+  "beats": [
+    {
+      "chapter": "接收缓存",
+      "scene": "tcp-buffer",
+      "phase": "missing",
+      "text": "假设中间一段没到，",
+      "action": "中间位置留空，前段已按序交付",
+      "hold": 0.02
+    },
+    {
+      "chapter": "接收缓存",
+      "scene": "tcp-buffer",
+      "phase": "arrival",
+      "text": "后面的数据却先来了。",
+      "action": "后段从右侧进入缓冲区",
+      "hold": 1.0,
+      "landing": {
+        "afterSpeech": 0.43,
+        "travel": 0.43,
+        "sound": "tap.wav"
+      }
+    },
+    {
+      "chapter": "接收缓存",
+      "scene": "tcp-buffer",
+      "phase": "buffer",
+      "text": "接收端可以先缓存它们，",
+      "action": "后段停在它的序号位置",
+      "hold": 0.02
+    },
+    {
+      "chapter": "接收缓存",
+      "scene": "tcp-buffer",
+      "phase": "blocked",
+      "text": "但不会把缺口后面的内容",
+      "action": "指针在缺口前停下",
+      "hold": 0.02
+    },
+    {
+      "chapter": "接收缓存",
+      "scene": "tcp-buffer",
+      "phase": "hold",
+      "text": "越过去交给应用。",
+      "action": "后段仍在缓冲区",
+      "hold": 0.38
+    },
+    {
+      "chapter": "按序交付",
+      "scene": "tcp-buffer",
+      "phase": "repair",
+      "text": "发送端还得把缺失部分补回来。",
+      "action": "补传段抵达，连续字节就绪",
+      "hold": 1.5,
+      "landing": {
+        "afterSpeech": 0.54,
+        "travel": 0.52,
+        "travelSound": "foley/slide.wav",
+        "sound": "foley/latch.wav"
+      }
+    },
+    {
+      "chapter": "按序交付",
+      "scene": "tcp-buffer",
+      "phase": "duplicate",
+      "text": "同一批字节再次到达时，",
+      "action": "重复段再次抵达",
+      "hold": 0.02
+    },
+    {
+      "chapter": "按序交付",
+      "scene": "tcp-buffer",
+      "phase": "discard",
+      "text": "接收端会识别重复，",
+      "action": "识别并丢弃重复副本",
+      "hold": 0.02
+    },
+    {
+      "chapter": "按序交付",
+      "scene": "tcp-buffer",
+      "phase": "deliver",
+      "text": "按顺序提供连续的字节流。",
+      "action": "按序交付后续连续字节",
+      "hold": 1.35,
+      "landing": {
+        "afterSpeech": 0.36,
+        "travel": 0.6,
+        "sound": "foley/release.wav"
+      }
+    }
+  ]
+}

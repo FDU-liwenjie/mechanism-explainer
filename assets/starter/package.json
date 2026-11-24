@@ -1,0 +1,24 @@
+{
+  "name": "mechanism-explainer-film",
+  "private": true,
+  "scripts": {
+    "studio": "remotion studio src/index.tsx",
+    "check": "tsc --noEmit",
+    "render": "python3 tools/render.py",
+    "still": "remotion still src/index.tsx Film",
+    "qc": "python3 tools/check.py",
+    "precheck": "node tools/test-tcp.mjs",
+    "prerender": "python3 tools/check.py && npm run check"
+  },
+  "dependencies": {
+    "@remotion/cli": "4.0.507",
+    "remotion": "4.0.507",
+    "react": "19.2.8",
+    "react-dom": "19.2.8"
+  },
+  "devDependencies": {
+    "@types/react": "19.2.14",
+    "@types/react-dom": "19.2.3",
+    "typescript": "5.9.3"
+  }
+}
