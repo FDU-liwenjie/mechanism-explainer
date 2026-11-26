@@ -3,6 +3,7 @@ import {AbsoluteFill, Audio, Composition, Sequence, registerRoot, staticFile, us
 import timeline from '../script/timeline.json';
 import {Beat, c, film, SceneProps, FilmStyle} from './design';
 import {Chalkboard} from './chalk/Chalkboard';
+import {FigureLesson, figureLessonFrames} from './chalk/FigureLesson';
 import {TcpBuffer} from './TcpBuffer';
 import {DnsRelay, NarratedTcpComparison, PacketLayers} from './svg/NetworkScenes';
 import {showcaseSeconds, SvgShowcase} from './svg/Showcase';
@@ -65,6 +66,7 @@ const Root = () => <>{(['Film','Studio','Diagram'] as const).map(id =>
     component={Frame} defaultProps={{style:id==='Film'?film.style:id==='Studio'?'studio':'diagram'}}/>
 )}
   <Composition id="Chalkboard" width={1920} height={1080} fps={timeline.fps} durationInFrames={timeline.total} component={Chalkboard}/>
+  <Composition id="FigureLesson" width={1920} height={1080} fps={30} durationInFrames={figureLessonFrames} component={FigureLesson}/>
   <Composition id="SvgMotions" width={1920} height={1080} fps={30} durationInFrames={showcaseSeconds * 30} component={SvgShowcase}/>
 </>;
 registerRoot(Root);

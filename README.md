@@ -29,6 +29,8 @@ git clone https://github.com/FDU-liwenjie/mechanism-explainer.git ~/.agents/skil
 
 在 Remotion Studio 打开 `Chalkboard` 可预览当前工程的板书和字幕。在工程里将 `film.style` 设为 `'chalkboard'` 后，`Film` 也会渲染同一堂课。可逐行调整板书、停顿和擦板时机，字幕另附 SRT 便于剪辑。[制作方法](references/production.md)
 
+板书配图可以跟着讲解逐笔出现。AI 发展史样片先画同一只猫的正面和背影，再用两张棋盘比较深蓝和 AlphaGo。另有 12 个离线常用图形，也支持把自己的照片、截图和插画放进板书。[看 28 秒配图样片](assets/board-illustrations-preview.mp4) · [浏览图形和用法](references/board-illustrations.md)
+
 ## 第一次给自己的稿件配音
 
 试听和选声都可以离线完成。要让角色读新稿时，先用自己的 Fish 账号创建 API Key。macOS 可打开随包配置工具，在终端中隐藏输入，Key 保存至本机登录钥匙串。其他平台可通过环境变量 `FISH_AUDIO_API_KEY` 提供。角色的 Model ID 已随包保存，换角色后继续使用同一份 Key。[创建 API Key](https://fish.audio/app/api-keys/) · [macOS 配置工具](scripts/配置%20Fish%20Audio.command)

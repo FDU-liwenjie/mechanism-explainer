@@ -1,0 +1,19 @@
+课堂常用图形来自 Tabler Icons，版本 v3.34.1。许可证全文见同目录 TABLER-LICENSE.txt。
+
+Copyright (c) 2020-2024 Paweł Kuna
+https://github.com/tabler/tabler-icons/tree/e8fcec66034d15fa893d4d3c740e584f8518ed44/icons/outline
+
+本包在 src/chalk/tablerPaths.json 保存下列 SVG 的可见路径。原始文件路径按仓库根目录列出。为配合板书，显示时调整笔色与笔宽，按笔画长度控制出场，将 bulb.svg 中分离的五道光线拆为独立笔触。
+
+icons/outline/cat.svg
+icons/outline/device-laptop.svg
+icons/outline/book.svg
+icons/outline/bulb.svg
+icons/outline/database.svg
+icons/outline/photo.svg
+icons/outline/router.svg
+icons/outline/file-text.svg
+icons/outline/mug.svg
+icons/outline/camera.svg
+icons/outline/cloud.svg
+icons/outline/message-circle.svg
