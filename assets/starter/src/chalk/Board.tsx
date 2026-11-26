@@ -51,23 +51,59 @@ const signFor = (c: string, extra: GlyphData): Sign => {
 };
 const layout = (text: string, data: GlyphData) => {
   let x=0, duration=0;
+  const trajectory: {stroke:Stroke; x:number; start:number; end:number}[]=[];
   const signs=Array.from(text).map(c=>{
     const sign=signFor(c,data);
     const entry={sign,x,start:duration};
+    let at=duration;
+    for (const stroke of sign.strokes) {
+      trajectory.push({stroke,x,start:at,end:at+stroke.length});
+      at+=stroke.length+lift;
+    }
     x+=sign.advance;
     duration+=sign.length+.1;
     return entry;
   });
-  return {signs,width:x,duration:Math.max(0,duration-.1)};
+  return {signs,trajectory,width:x,duration:Math.max(0,duration-.1)};
 };
 export const chalkTextWidth=(text:string,size:number,glyphs:GlyphData=defaultGlyphs) => layout(text,glyphs).width*size;
 
-const Nib: React.FC<{x:number;y:number;color:string}> = ({x,y,color}) =>
-  <g transform={`translate(${x} ${y}) rotate(-33)`} pointerEvents="none">
-    <path d="M1 2.5 L23 5 L26 2.7 L26 -1 L2 -.7 Z" fill="#0d2828" opacity=".35" transform="translate(1 2)"/>
-    <path d="M0 0 L3 -3 L25 -3.6 L27 -1.7 L26.5 2.2 L3 3 Z" fill={color}/>
-    <path d="M3 1.2 L26.5 .2 L26.5 2.2 L3 3 Z" fill="#344f49" opacity=".36"/>
-    <path d="M4 -2 L23 -2.7" stroke="#fff9ea" opacity=".7" strokeWidth=".8"/>
+type Pose = {x:number;y:number;raised:number;opacity:number};
+const penOnLine=(line:ReturnType<typeof layout>, at:number, x:number,y:number,size:number):Pose | undefined=>{
+  const current=line.trajectory.find(piece=>at<=piece.end);
+  const index=current ? line.trajectory.indexOf(current) : line.trajectory.length;
+  if(current && at>=current.start){
+    const p=interpolatePoint(current.stroke,at-current.start);
+    return {x:x+(current.x+p[0])*size,y:y+p[1]*size,raised:0,opacity:1};
+  }
+  const last=line.trajectory[index-1];
+  if(!last)return undefined;
+  const p0=last.stroke.points[last.stroke.points.length-1];
+  const end=current?.start ?? line.duration;
+  const fraction=clamp((at-last.end)/Math.max(.001,end-last.end));
+  const p1=current?.stroke.points[0] ?? p0;
+  const raised=current ? Math.sin(Math.PI*fraction) : fraction;
+  const travel=fraction*fraction*(3-2*fraction);
+  const x0=p0[0]+last.x, x1=p1[0]+(current?.x ?? last.x);
+  return {x:x+(x0+(x1-x0)*travel)*size+raised*4,y:y+(p0[1]+(p1[1]-p0[1])*travel)*size-raised*9,
+    raised,opacity:current ? 1 : 1-fraction};
+};
+
+const Nib: React.FC<Pose & {color:string}> = ({x,y,color,raised,opacity}) =>
+  <g transform={`translate(${x} ${y}) rotate(${-34-raised*5})`} opacity={opacity} pointerEvents="none" aria-hidden>
+    <path d="M1 1.8 L4 -3.2 Q5 -4.1 10 -4.1 L52 -4.9 Q56 -4.7 57 0.2 Q56.8 4.8 53 5.0 L6 4.2Z"
+      fill="#102924" opacity={.32-raised*.13} transform={`translate(${1+raised*3} ${2.5+raised*2.8})`}/>
+    <path d="M.2 0 L3 -3.4 Q4.7 -4.8 10 -4.8 L52 -5.7 Q56.9 -5.5 57.1 -.1 Q57.4 4.5 53.3 5.7 L8 5.1 L3.5 4.2Z"
+      fill="#f1ecd7" stroke="#6c766b" strokeWidth=".65"/>
+    <path d="M6 -3.7 L53 -4.9 L55.3 -2.2 L8 -.4Z" fill="#fff9e8"/>
+    <path d="M6 .1 Q28 1.2 54.7 -.9 L54.1 4.9 L8.4 4.6 L4.2 3.5Z" fill={color} opacity=".46"/>
+    <path d="M5.6 2.6 L20.3 3 L41.9 2.6 L54.2 1.8 L53.5 5 L8.4 4.6 L3.9 3.6Z" fill="#758478" opacity=".44"/>
+    <ellipse cx="53.2" cy="0" rx="3.6" ry="5.2" fill="#d8d7c4" stroke="#8e9a8a" strokeWidth=".75"/>
+    <path d="M52.6 -4.3 Q56.7 -1.3 54.8 3.5" fill="none" stroke="#e9e8d3" strokeWidth="1.1"/>
+    <path d="M.2 0 L3.3 -3.2 L7.3 -4.3 L5.5 -1.7 L5.8 1.3 L4.2 3.8 L2.2 2.3Z"
+      fill={color} stroke="#c8c8b5" strokeWidth=".55"/>
+    <path d="M10.8 -.2 l1.1 -.7 m9.2 -.9 l1.7 .2 m10.3 .3 l.9 -.8 m10.3 -1 l1.2 .3"
+      stroke="#969d8f" strokeWidth=".68" strokeLinecap="round" opacity=".7"/>
   </g>;
 const Ink: React.FC<{d:string;color:string;width:number;length?:number}> = ({d,color,width,length}) =>
   <path d={d} stroke={color} fill="none" strokeWidth={width} strokeLinecap="round" strokeLinejoin="round"
@@ -79,7 +115,7 @@ export const ChalkWrite: React.FC<PenProps & {text:string;x:number;y:number;size
     if (progress <= 0) return null;
     const at=clamp(progress)*line.duration;
     const w=(width ?? size*.048)/size;
-    let active: Point | undefined;
+    const pen=tip && progress<1 ? penOnLine(line,at,x,y,size) : undefined;
     const ink=line.signs.map(({sign,x:dx,start},i)=>{
       const time=at-start;
       if (time<=0 || !sign.d) return null;
@@ -91,8 +127,6 @@ export const ChalkWrite: React.FC<PenProps & {text:string;x:number;y:number;size
         if(local<=0) break;
         if(local>=stroke.length) finished+=stroke.d;
         else {
-          const [px,py]=interpolatePoint(stroke,local);
-          active=[x+(dx+px)*size,y+py*size];
           writing=<Ink d={stroke.d} color={color} width={w} length={local}/>;
           break;
         }
@@ -101,16 +135,18 @@ export const ChalkWrite: React.FC<PenProps & {text:string;x:number;y:number;size
       return <g key={i} transform={`translate(${dx} 0)`}>{finished && <Ink d={finished} color={color} width={w}/>}{writing}</g>;
     });
     return <g><g transform={`translate(${x} ${y}) scale(${size})`}>{ink}</g>
-      {tip && active && progress<1 && <Nib x={active[0]} y={active[1]} color={color}/>}</g>;
+      {pen && <Nib {...pen} color={color}/>}</g>;
   };
 
 export const ChalkPath: React.FC<PenProps & {points:readonly Point[]}> = ({points,progress,color=chalkColors.white,width=4,tip=true})=>{
   const stroke=useMemo(()=>points.length>=2 ? measure(points) : null,[points]);
   if(progress<=0 || !stroke?.length) return null;
-  const length=stroke.length*clamp(progress);
+  const travel=clamp(progress/.94);
+  const raised=clamp((progress-.94)/.06);
+  const length=stroke.length*travel;
   const pen=interpolatePoint(stroke,length);
   return <g><Ink d={stroke.d} color={color} width={width} length={progress<1 ? length : undefined}/>
-    {tip && progress<1 && <Nib x={pen[0]} y={pen[1]} color={color}/>}</g>;
+    {tip && progress<1 && <Nib x={pen[0]+4*raised} y={pen[1]-9*raised} color={color} raised={raised} opacity={1-raised}/>}</g>;
 };
 export const ChalkCircle: React.FC<PenProps & {cx:number;cy:number;rx:number;ry:number}> = ({cx,cy,rx,ry,color=chalkColors.yellow,...props})=>{
   const points=useMemo(()=>Array.from({length:90},(_,i):Point=>{

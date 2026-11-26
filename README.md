@@ -23,9 +23,11 @@ git clone https://github.com/FDU-liwenjie/mechanism-explainer.git ~/.agents/skil
 
 下载后打开 [离线试听页](assets/starter/voices/index.html) 即可播放；GitHub 文件页显示该页面的源代码。[SVG 动作样片](assets/svg-motions-preview.mp4) 演示沿线传递、分层拆解和同步对照。
 
-例如选「老师手写板书」讲 TCP，先看第 1 块和第 3 块中间空了一格。老师问「第 3 块能先交出去吗？」停一下，才用粉笔圈出缺口。旁白解释完原因，再写下「按序交付」。想先听听落笔和画圈的声音，可以点开算题样片，或在 Remotion Studio 选择 `Chalkboard`。[观看 22 秒板书样片](assets/chalkboard-preview.mp4)
+「老师手写板书」从黑板左上逐行往下写。老师说到哪个词，再动笔写那个词。比如帧已经到路由器，板上写的终点却还是服务器，这时学生才举手问「要去服务器，怎么先给路由器呀？」老师等一拍，接着把两段路画全。普通讲解留给板书，底部同步显示旁白，粉笔声随落笔、抬笔收放。[看 37 秒学生发问样片](assets/student-question-preview.mp4)
 
-要为自己的配音做板书，在工程里启用板书画风后打开 `Film`。逐句解说另附 SRT 字幕，可在播放器中打开，黑板中央只留下本步要看的字和图。[制作方法](references/production.md)
+随包工程还有一段可以逐帧修改的 TCP 接收缓存练习。板上第 2 格空着，第 3 格已有数据。学生的云朵短暂问「第3段能先交吗？」，老师随后写下「先缓存」，圈出缺口。[看 22 秒可编辑板书示例](assets/chalkboard-preview.mp4)
+
+在 Remotion Studio 打开 `Chalkboard` 可预览当前工程的板书和字幕。在工程里将 `film.style` 设为 `'chalkboard'` 后，`Film` 也会渲染同一堂课。可逐行调整板书、停顿和擦板时机，字幕另附 SRT 便于剪辑。[制作方法](references/production.md)
 
 ## 第一次给自己的稿件配音
 

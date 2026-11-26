@@ -2,11 +2,9 @@ import React from 'react';
 import {AbsoluteFill, Audio, Composition, Sequence, registerRoot, staticFile, useCurrentFrame} from 'remotion';
 import timeline from '../script/timeline.json';
 import {Beat, c, film, SceneProps, FilmStyle} from './design';
-import board from '../script/board.json';
-import {BoardMark, ChalkSheet, validateBoard} from './chalk/Lesson';
+import {Chalkboard} from './chalk/Chalkboard';
 import {TcpBuffer} from './TcpBuffer';
 import {DnsRelay, NarratedTcpComparison, PacketLayers} from './svg/NetworkScenes';
-import {Chalkboard, chalkboardSeconds} from './chalk/Chalkboard';
 import {showcaseSeconds, SvgShowcase} from './svg/Showcase';
 
 // Register each new topic's scene here. A scene receives the active narration beat.
@@ -22,20 +20,10 @@ const Frame: React.FC<{style:FilmStyle}> = ({style}) => {
   const frame = useCurrentFrame();
   const b = beats.find(b => frame >= b.from && frame < b.to);
   if (!b) throw new Error('Uncovered frame ' + frame);
+  if (style==='chalkboard') return <Chalkboard/>;
   const narration = beats.map((cue) => <Sequence key={cue.from} from={cue.from} durationInFrames={cue.speech}>
       <Audio src={staticFile(cue.audio)}/>
     </Sequence>);
-  if (style==='chalkboard') {
-    const key=b.scene+'/'+b.phase;
-    const marks=(board as Record<string,BoardMark[]>)[key];
-    validateBoard(marks,key);
-    return <AbsoluteFill>
-      <Sequence from={b.from} durationInFrames={b.to-b.from}>
-        <ChalkSheet marks={marks} frame={frame-b.from} duration={b.to-b.from} sound={film.actionSound}/>
-      </Sequence>
-      {narration}
-    </AbsoluteFill>;
-  }
   const Scene = scenes[b.scene];
   if (!Scene) throw new Error('Unregistered scene ' + b.scene);
   const localFrame = frame - b.from;
@@ -76,7 +64,7 @@ const Root = () => <>{(['Film','Studio','Diagram'] as const).map(id =>
   <Composition key={id} id={id} width={1920} height={1080} fps={timeline.fps} durationInFrames={timeline.total}
     component={Frame} defaultProps={{style:id==='Film'?film.style:id==='Studio'?'studio':'diagram'}}/>
 )}
-  <Composition id="Chalkboard" width={1920} height={1080} fps={30} durationInFrames={chalkboardSeconds * 30} component={Chalkboard}/>
+  <Composition id="Chalkboard" width={1920} height={1080} fps={timeline.fps} durationInFrames={timeline.total} component={Chalkboard}/>
   <Composition id="SvgMotions" width={1920} height={1080} fps={30} durationInFrames={showcaseSeconds * 30} component={SvgShowcase}/>
 </>;
 registerRoot(Root);

@@ -1,454 +1,240 @@
 {
-  "tcp-buffer/missing": [
-    {
-      "kind": "write",
-      "text": "1",
-      "x": 295,
-      "y": 285,
-      "size": 109,
-      "color": "#f4efdc",
-      "from": 0,
-      "to": 0
-    },
-    {
-      "kind": "path",
-      "points": [
-        [
-          465,
-          397
-        ],
-        [
-          550,
-          397
+  "tcp-buffer/missing": {
+    "page": "缺口",
+    "marks": [
+      {
+        "kind": "write",
+        "text": "缺了一段",
+        "x": 102,
+        "y": 66,
+        "size": 65,
+        "frames": [
+          15,
+          51
         ]
-      ],
-      "color": "#f4efdc",
-      "width": 4,
-      "from": 0.24,
-      "to": 0.74
+      }
+    ],
+    "recorded": {
+      "speech": 51,
+      "total": 52
     }
-  ],
-  "tcp-buffer/arrival": [
-    {
-      "kind": "write",
-      "text": "1",
-      "x": 295,
-      "y": 285,
-      "size": 109,
-      "color": "#f4efdc",
-      "from": 0,
-      "to": 0
-    },
-    {
-      "kind": "path",
-      "points": [
-        [
-          465,
-          397
-        ],
-        [
-          550,
-          397
+  },
+  "tcp-buffer/arrival": {
+    "page": "缺口",
+    "marks": [
+      {
+        "kind": "write",
+        "text": "1",
+        "x": 108,
+        "y": 176,
+        "size": 82,
+        "frames": [
+          0,
+          9
         ]
-      ],
-      "color": "#f4efdc",
-      "width": 4,
-      "from": 0,
-      "to": 0
-    },
-    {
-      "kind": "write",
-      "text": "3",
-      "x": 668,
-      "y": 285,
-      "size": 109,
-      "color": "#a7d8c5",
-      "from": 0.25,
-      "to": 0.82
-    }
-  ],
-  "tcp-buffer/buffer": [
-    {
-      "kind": "write",
-      "text": "1",
-      "x": 295,
-      "y": 285,
-      "size": 109,
-      "color": "#f4efdc",
-      "from": 0,
-      "to": 0
-    },
-    {
-      "kind": "path",
-      "points": [
-        [
-          465,
-          397
+      },
+      {
+        "kind": "path",
+        "points": [
+          [
+            239,
+            254
+          ],
+          [
+            315,
+            253
+          ]
         ],
-        [
-          550,
-          397
+        "color": "#a7d8c5",
+        "frames": [
+          10,
+          18
         ]
-      ],
-      "color": "#f4efdc",
-      "width": 4,
-      "from": 0,
-      "to": 0
-    },
-    {
-      "kind": "write",
-      "text": "3",
-      "x": 668,
-      "y": 285,
-      "size": 109,
-      "color": "#a7d8c5",
-      "from": 0,
-      "to": 0
-    },
-    {
-      "kind": "write",
-      "text": "缺口",
-      "x": 428,
-      "y": 162,
-      "size": 61,
-      "color": "#f5d58b",
-      "from": 0.13,
-      "to": 0.86
-    }
-  ],
-  "tcp-buffer/blocked": [
-    {
-      "kind": "write",
-      "text": "1",
-      "x": 295,
-      "y": 285,
-      "size": 109,
-      "color": "#f4efdc",
-      "from": 0,
-      "to": 0
-    },
-    {
-      "kind": "path",
-      "points": [
-        [
-          465,
-          397
-        ],
-        [
-          550,
-          397
+      },
+      {
+        "kind": "write",
+        "text": "3",
+        "x": 397,
+        "y": 176,
+        "size": 82,
+        "color": "#a7d8c5",
+        "frames": [
+          19,
+          41
         ]
+      }
+    ],
+    "question": {
+      "fromFrame": 44,
+      "toFrame": 84,
+      "lines": [
+        {
+          "atFrame": 47,
+          "text": "第3段能先交吗？"
+        }
       ],
-      "color": "#f4efdc",
-      "width": 4,
-      "from": 0,
-      "to": 0
+      "x": 537,
+      "y": 241
     },
-    {
-      "kind": "write",
-      "text": "3",
-      "x": 668,
-      "y": 285,
-      "size": 109,
-      "color": "#a7d8c5",
-      "from": 0,
-      "to": 0
-    },
-    {
-      "kind": "write",
-      "text": "缺口",
-      "x": 428,
-      "y": 162,
-      "size": 61,
-      "color": "#f5d58b",
-      "from": 0,
-      "to": 0
-    },
-    {
-      "kind": "write",
-      "text": "等待",
-      "x": 820,
-      "y": 306,
-      "size": 68,
-      "color": "#f4efdc",
-      "from": 0.12,
-      "to": 0.77
+    "recorded": {
+      "speech": 54,
+      "total": 84
     }
-  ],
-  "tcp-buffer/hold": [
-    {
-      "kind": "write",
-      "text": "1",
-      "x": 295,
-      "y": 285,
-      "size": 109,
-      "color": "#f4efdc",
-      "from": 0,
-      "to": 0
-    },
-    {
-      "kind": "path",
-      "points": [
-        [
-          465,
-          397
-        ],
-        [
-          550,
-          397
+  },
+  "tcp-buffer/buffer": {
+    "page": "缺口",
+    "marks": [
+      {
+        "kind": "write",
+        "text": "先缓存",
+        "x": 106,
+        "y": 310,
+        "size": 62,
+        "color": "#a7d8c5",
+        "frames": [
+          27,
+          61
         ]
-      ],
-      "color": "#f4efdc",
-      "width": 4,
-      "from": 0,
-      "to": 0
-    },
-    {
-      "kind": "write",
-      "text": "3",
-      "x": 668,
-      "y": 285,
-      "size": 109,
-      "color": "#a7d8c5",
-      "from": 0,
-      "to": 0
-    },
-    {
-      "kind": "write",
-      "text": "缺口",
-      "x": 428,
-      "y": 162,
-      "size": 61,
-      "color": "#f5d58b",
-      "from": 0,
-      "to": 0
-    },
-    {
-      "kind": "write",
-      "text": "等待",
-      "x": 820,
-      "y": 306,
-      "size": 68,
-      "color": "#f4efdc",
-      "from": 0,
-      "to": 0
+      }
+    ],
+    "recorded": {
+      "speech": 61,
+      "total": 62
     }
-  ],
-  "tcp-buffer/repair": [
-    {
-      "kind": "write",
-      "text": "1",
-      "x": 295,
-      "y": 285,
-      "size": 109,
-      "color": "#f4efdc",
-      "from": 0,
-      "to": 0
-    },
-    {
-      "kind": "path",
-      "points": [
-        [
-          465,
-          397
-        ],
-        [
-          550,
-          397
+  },
+  "tcp-buffer/blocked": {
+    "page": "缺口",
+    "marks": [
+      {
+        "kind": "circle",
+        "cx": 275,
+        "cy": 222,
+        "rx": 63,
+        "ry": 49,
+        "color": "#f5d58b",
+        "frames": [
+          26,
+          52
         ]
-      ],
-      "color": "#f4efdc",
-      "width": 4,
-      "from": 0,
-      "to": 0
-    },
-    {
-      "kind": "write",
-      "text": "3",
-      "x": 668,
-      "y": 285,
-      "size": 109,
-      "color": "#a7d8c5",
-      "from": 0,
-      "to": 0
-    },
-    {
-      "kind": "write",
-      "text": "2",
-      "x": 468,
-      "y": 285,
-      "size": 109,
-      "color": "#f5d58b",
-      "from": 0.28,
-      "to": 0.85
+      }
+    ],
+    "recorded": {
+      "speech": 60,
+      "total": 61
     }
-  ],
-  "tcp-buffer/duplicate": [
-    {
-      "kind": "write",
-      "text": "1",
-      "x": 295,
-      "y": 285,
-      "size": 109,
-      "color": "#f4efdc",
-      "from": 0,
-      "to": 0
-    },
-    {
-      "kind": "write",
-      "text": "2",
-      "x": 468,
-      "y": 285,
-      "size": 109,
-      "color": "#f5d58b",
-      "from": 0,
-      "to": 0
-    },
-    {
-      "kind": "write",
-      "text": "3",
-      "x": 668,
-      "y": 285,
-      "size": 109,
-      "color": "#a7d8c5",
-      "from": 0,
-      "to": 0
-    },
-    {
-      "kind": "write",
-      "text": "3",
-      "x": 850,
-      "y": 285,
-      "size": 109,
-      "color": "#a7d8c5",
-      "from": 0.15,
-      "to": 0.79
-    }
-  ],
-  "tcp-buffer/discard": [
-    {
-      "kind": "write",
-      "text": "1",
-      "x": 295,
-      "y": 285,
-      "size": 109,
-      "color": "#f4efdc",
-      "from": 0,
-      "to": 0
-    },
-    {
-      "kind": "write",
-      "text": "2",
-      "x": 468,
-      "y": 285,
-      "size": 109,
-      "color": "#f5d58b",
-      "from": 0,
-      "to": 0
-    },
-    {
-      "kind": "write",
-      "text": "3",
-      "x": 668,
-      "y": 285,
-      "size": 109,
-      "color": "#a7d8c5",
-      "from": 0,
-      "to": 0
-    },
-    {
-      "kind": "write",
-      "text": "3",
-      "x": 850,
-      "y": 285,
-      "size": 109,
-      "color": "#a7d8c5",
-      "from": 0,
-      "to": 0
-    },
-    {
-      "kind": "path",
-      "points": [
-        [
-          846,
-          386
-        ],
-        [
-          930,
-          321
+  },
+  "tcp-buffer/hold": {
+    "page": "缺口",
+    "marks": [
+      {
+        "kind": "write",
+        "text": "不能越过缺口",
+        "x": 105,
+        "y": 418,
+        "size": 53,
+        "frames": [
+          10,
+          54
         ]
-      ],
-      "color": "#f5d58b",
-      "width": 4,
-      "from": 0.24,
-      "to": 0.86
+      }
+    ],
+    "recorded": {
+      "speech": 45,
+      "total": 56
     }
-  ],
-  "tcp-buffer/deliver": [
-    {
-      "kind": "write",
-      "text": "1",
-      "x": 295,
-      "y": 285,
-      "size": 109,
-      "color": "#f4efdc",
-      "from": 0,
-      "to": 0
-    },
-    {
-      "kind": "write",
-      "text": "2",
-      "x": 468,
-      "y": 285,
-      "size": 109,
-      "color": "#f5d58b",
-      "from": 0,
-      "to": 0
-    },
-    {
-      "kind": "write",
-      "text": "3",
-      "x": 668,
-      "y": 285,
-      "size": 109,
-      "color": "#a7d8c5",
-      "from": 0,
-      "to": 0
-    },
-    {
-      "kind": "path",
-      "points": [
-        [
-          290,
-          430
+  },
+  "tcp-buffer/repair": {
+    "page": "缺口",
+    "marks": [
+      {
+        "kind": "write",
+        "text": "2",
+        "x": 244,
+        "y": 176,
+        "size": 82,
+        "from": 0.1,
+        "to": 0.5,
+        "color": "#f5d58b"
+      }
+    ],
+    "eraseFrom": 0.665
+  },
+  "tcp-buffer/duplicate": {
+    "page": "重复",
+    "marks": [
+      {
+        "kind": "write",
+        "text": "重复到达",
+        "x": 102,
+        "y": 66,
+        "size": 65,
+        "from": 0.02,
+        "to": 0.97
+      }
+    ]
+  },
+  "tcp-buffer/discard": {
+    "page": "重复",
+    "marks": [
+      {
+        "kind": "write",
+        "text": "3    3",
+        "x": 112,
+        "y": 182,
+        "size": 84,
+        "from": 0.02,
+        "to": 0.43
+      },
+      {
+        "kind": "path",
+        "points": [
+          [
+            311,
+            265
+          ],
+          [
+            368,
+            191
+          ]
         ],
-        [
-          440,
-          429
-        ],
-        [
-          584,
-          431
-        ],
-        [
-          745,
-          428
-        ]
-      ],
-      "color": "#a7d8c5",
-      "width": 4,
-      "from": 0.02,
-      "to": 0.35
-    },
-    {
-      "kind": "write",
-      "text": "按序交付",
-      "x": 324,
-      "y": 473,
-      "size": 70,
-      "color": "#a7d8c5",
-      "from": 0.38,
-      "to": 0.95
-    }
-  ]
+        "from": 0.48,
+        "to": 0.74,
+        "color": "#f5d58b"
+      },
+      {
+        "kind": "write",
+        "text": "丢弃",
+        "x": 432,
+        "y": 194,
+        "size": 60,
+        "from": 0.75,
+        "to": 1,
+        "color": "#a7d8c5"
+      }
+    ]
+  },
+  "tcp-buffer/deliver": {
+    "page": "重复",
+    "marks": [
+      {
+        "kind": "write",
+        "text": "1   2   3",
+        "x": 112,
+        "y": 325,
+        "size": 77,
+        "from": 0.01,
+        "to": 0.39
+      },
+      {
+        "kind": "write",
+        "text": "→  按序交付",
+        "x": 523,
+        "y": 333,
+        "size": 65,
+        "from": 0.43,
+        "to": 0.93,
+        "color": "#a7d8c5"
+      }
+    ]
+  }
 }
